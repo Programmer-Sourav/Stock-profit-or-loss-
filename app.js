@@ -16,13 +16,13 @@ function submitHandler() {
   calculateProfitAndLoss(ip, qty, curr);
 }
 
-// Ex-05
+Ex-05
 function calculateProfitAndLoss(initial, quantity, current) {
   if (initial > current) {
     var loss = (initial - current) * quantity;
     var lossPercentage = (loss / initial) * 100;
 
-    showOutput(
+    showErrorOutput(
       `Hey, the loss is ${loss} and the percent is ${lossPercentage}%`
     );
   } else if (current > initial) {
@@ -35,14 +35,40 @@ function calculateProfitAndLoss(initial, quantity, current) {
   } else {
     var loss = (initial - current) * quantity;
     var lossPercentage = (loss/ initial) * 100;
-    showErrorOutput( `Ooops! You are at a loss. The loss is ${loss} and the percent is ${lossPercentage}%`);
+    showOutput( `You neither made any profit nor any loss.`);
   }
 }
 
 function showOutput(message) {
-  outputBox.innerHTML = <span style='color: green;'>message </span>;
+  outputBox.innerHTML = message;
+  outputBox.style.color = 'green';
 }
 
 function showErrorOutput(message){
-  outputBox.innerHTML = <span style='color: red;'>message </span>;
+  outputBox.innerHTML = message;
+  outputBox.style.color = 'red';
 }
+
+// function calculateProfitAndLoss(initial, quantity, current) {
+//   if (initial > current) {
+//     var loss = (initial - current) * quantity;
+//     var lossPercentage = (loss / initial) * 100;
+
+//     showOutput(
+//       `Hey, the loss is ${loss} and the percent is ${lossPercentage}%`
+//     );
+//   } else if (current > initial) {
+//     var profit = (current - initial) * quantity;
+//     var profitPercentage = (profit / initial) * 100;
+
+//     showOutput(
+//       `Hey, the profit is ${profit} and the percent is ${profitPercentage}%`
+//     );
+//   } else {
+//     showOutput(`No pain no gain and no gain no pain`);
+//   }
+// }
+
+// function showOutput(message) {
+//   outputBox.innerHTML = message;
+// }
